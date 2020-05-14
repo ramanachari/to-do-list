@@ -1,4 +1,5 @@
 import React from 'react';
+import ListItem from './list-item';
 
 class CreateListItem extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class CreateListItem extends React.Component {
                 }
             })
         }
-        
+        //console.log(this.state)
     }
     render() {
         return (
@@ -36,10 +37,8 @@ class CreateListItem extends React.Component {
                     <input type="text" placeholder="Enter task" value={this.state.currentItem.text} onChange={this.handleInput} />
                     <button type="submit">Add</button>
                 </form>
-            </header>
-            
-            
-            
+                <ListItem rowData={this.state}/>
+            </header>     
             )
     }
 
