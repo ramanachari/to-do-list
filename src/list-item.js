@@ -14,9 +14,7 @@ class ListItem extends Component{
                     {/* {this.props.rowData?.items[0]?.text} */}
                     <div className="card bg-warning text-white">
                     {this.props.rowData?.items?.map((value, index) => {
-                      return  <li className="card-body" key={index}>{value.text}</li>
-                      
-                      
+                      return  <li className="card-body" key={index}>{value.text}</li> 
                     })}
                     </div>
                 </div>
