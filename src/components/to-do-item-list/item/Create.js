@@ -1,7 +1,8 @@
 import React from 'react';
-import ListItem from './list-item';
+import ListItem from '../ListItem';
 
 class Create extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -12,6 +13,7 @@ class Create extends React.Component {
             }
         }
     }
+
     handleInput = (e) => {
         this.setState({ currentItem: {text: e.target.value, key: Date.now()} })
     }

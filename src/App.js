@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import CreateListItem from './CreateListItem';
-import ListItem from './list-item';
+import {Create}  from './components/to-do-item-list/item/Create';
+import {ListItem} from './components/to-do-item-list/ListItem';
 
 function App() {
   return (
     <div className="App">
-     <CreateListItem/>
+     <Create/>
      <ListItem/>
     </div>
   );
