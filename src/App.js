@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import {Create}  from './components/to-do-item-list/item/Create';
-import {ListItem} from './components/to-do-item-list/ListItem';
+import Create  from './components/to-do-item-list/item/Create';
+import ListItem from './components/to-do-item-list/ListItem';
 
 function App() {
   return (
