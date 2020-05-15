@@ -12,11 +12,16 @@ class ListItem extends Component{
             <div className="container" >
                 <div className="row">
                     {/* {this.props.rowData?.items[0]?.text} */}
-                    <div className="card bg-warning text-white">
+                   
                     {this.props.rowData?.items?.map((value, index) => {
-                      return  <li className="card-body" key={index}>{value.text}</li> 
+                      return  (<> 
+                      <div className="card bg-warning text-white item-list-card row">
+                          <div className="card-body" key={index}>{value.text} 
+                          <span> <i class="fa fa-trash trash-icon" aria-hidden="true"></i></span></div>                       
+                       </div>
+                          </>) 
                     })}
-                    </div>
+                    
                 </div>
             </div>
         );

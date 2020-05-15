@@ -10,6 +10,8 @@
 
 # production
 /build
+/wwwroot
+wwwroot.zip
 
 # misc
 .DS_Store
