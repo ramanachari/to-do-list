@@ -1,7 +1,7 @@
 import React from 'react';
 import ListItem from './list-item';
 
-class CreateListItem extends React.Component {
+class Create extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,14 +41,8 @@ class CreateListItem extends React.Component {
             </header>     
             )
     }
-
-
-
-
-
-
 }
 
 
 
-export default CreateListItem;
+export default Create;

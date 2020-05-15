@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import CreateListItem from './CreateListItem';
 import ListItem from './list-item';
