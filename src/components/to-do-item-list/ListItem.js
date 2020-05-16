@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import * as toDoAction from '../../actions/toDoAction';
 
 class ListItem extends Component {
 
     render() {
-        console.log(this.props.toDos);
+        console.log(this.props);
         return (
             <div className="container" >
                 <div className="row">
-                    {/* {this.props.rowData?.items[0]?.text} */}
-
-                    {this.props.rowData?.items?.map((value, index) => {
+                    {this.props.toDos.map((value, index) => {
                         return (<>
                             <div className="card bg-warning text-white item-list-card row">
-                                <div className="card-body" key={index}>{value.text}
-                                    <span> <i class="fa fa-trash trash-icon" aria-hidden="true"></i></span></div>
+                             <div className="card-body" id={index}>{value.title}
+                                <span>
+                                     <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(index)} ></i>
+                                </span>
+                                <span><i className="fa fa-pencil-square-o list-icon" aria-hidden="true" ></i></span>
+                             </div>
                             </div>
                         </>)
                     })}
@@ -32,6 +34,12 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = (dispatch) => {
+        return {
+            deleteToDo: toDoId => dispatch(toDoAction.deleteToDo(toDoId))
+        }
+    }
+
 //if you are performing operations then we have use this 
 // const mapDispatchToProps = (dispatch) => {
 //     return {
@@ -39,4 +47,4 @@ const mapStateToProps = state => {
 //     }
 // }
 
-export default connect(mapStateToProps)(ListItem);
+export default connect(mapStateToProps,mapDispatchToProps)(ListItem);
