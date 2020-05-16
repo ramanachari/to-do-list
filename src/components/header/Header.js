@@ -15,11 +15,9 @@ class Header extends Component {
     }
 
     handleChangeEvent = (e) => {
-        if (e.target.value != '') {
-            this.setState({ currentFilter: e.target.value });
-            this.props.filterToDos(this.state.currentFilter);
-        }
 
+        this.setState({ currentFilter: e.target.value });
+        this.props.updateFilter(this.state.currentFilter);
 
     }
 
@@ -40,8 +38,8 @@ class Header extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-   return {
-       filterToDos: (filter) => dispatch(actions.updateFilterData(filter))
+    return {
+        updateFilter: (filter) => dispatch(actions.updateFilterData(filter))
     };
 }
 

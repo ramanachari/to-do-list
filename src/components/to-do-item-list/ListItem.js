@@ -12,12 +12,12 @@ class ListItem extends Component {
                     {this.props.toDos.filter(item => !item.isDeleted).map((value, index) => {
                         return (<>
                             <div className="card bg-warning text-white item-list-card row">
-                             <div className="card-body" id={index}>{value.title}
-                                <span>
-                                     <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
-                                </span>
-                                <span><i className="fa fa-pencil-square-o list-icon" aria-hidden="true" ></i></span>
-                             </div>
+                                <div className="card-body" id={index}>{value.title}
+                                    <span>
+                                        <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
+                                    </span>
+                                    <span><i className="fa fa-pencil-square-o list-icon" aria-hidden="true" ></i></span>
+                                </div>
                             </div>
                         </>)
                     })}
@@ -30,15 +30,19 @@ class ListItem extends Component {
 
 const mapStateToProps = state => {
     return {
-        toDos: state.toDos
-    };
+        toDos: state.searchFilter!=''? state.toDos.filter(
+            function (todo) {
+                return todo.title.includes(state.searchFilter)
+            }
+        ):state.toDos
+    }
 };
 
 const mapDispatchToProps = (dispatch) => {
-        return {
-            deleteToDo: toDoId => dispatch(toDoAction.deleteToDo(toDoId))
-        }
+    return {
+        deleteToDo: toDoId => dispatch(toDoAction.deleteToDo(toDoId))
     }
+}
 
 //if you are performing operations then we have use this 
 // const mapDispatchToProps = (dispatch) => {
@@ -47,4 +51,4 @@ const mapDispatchToProps = (dispatch) => {
 //     }
 // }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ListItem);
