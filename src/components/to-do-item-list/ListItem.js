@@ -9,12 +9,12 @@ class ListItem extends Component {
         return (
             <div className="container" >
                 <div className="row">
-                    {this.props.toDos.map((value, index) => {
+                    {this.props.toDos.filter(item => !item.isDeleted).map((value, index) => {
                         return (<>
                             <div className="card bg-warning text-white item-list-card row">
                              <div className="card-body" id={index}>{value.title}
                                 <span>
-                                     <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(index)} ></i>
+                                     <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
                                 </span>
                                 <span><i className="fa fa-pencil-square-o list-icon" aria-hidden="true" ></i></span>
                              </div>
