@@ -44,7 +44,7 @@ export default function toDoReducer(state = initialState, action) {
             }
         case COMPLETE_TODO:
             return {
-                toDos: state.map(item =>
+                toDos: state.toDos.map(item =>
                     item.id === action.toDoId ?
                         { ...item, isToDo: false } :
                         item

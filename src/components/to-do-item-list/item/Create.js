@@ -20,6 +20,7 @@ class Create extends React.Component {
         e.preventDefault();
         const newItem = this.state.currentItem;
         if (newItem.text !== '') {
+            this.setState({currentItem: ''})
             const todoItem = new ToDoItem(3, newItem, 'descrip', '9:00', '9:30', true, false)
             this.props.createToDo(todoItem);  
         }
@@ -29,7 +30,7 @@ class Create extends React.Component {
         return (
             <header>
                 <form id="to-do-form" onSubmit={this.addItem}>
-                    <input type="text" placeholder="Enter task" value={this.state.currentItem.text} onChange={this.handleInput} />
+                    <input type="text" placeholder="Enter task" value={this.state.currentItem} onChange={this.handleInput} />
                     <button type="submit">Add</button>
                 </form>
                 {/* <ListItem rowData={this.state}/> */}
