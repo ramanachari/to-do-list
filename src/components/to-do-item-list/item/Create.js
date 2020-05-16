@@ -1,5 +1,4 @@
 import React from 'react';
-import ListItem from '../ListItem';
 
 class Create extends React.Component {
     
@@ -39,7 +38,7 @@ class Create extends React.Component {
                     <input type="text" placeholder="Enter task" value={this.state.currentItem.text} onChange={this.handleInput} />
                     <button type="submit">Add</button>
                 </form>
-                <ListItem rowData={this.state}/>
+                {/* <ListItem rowData={this.state}/> */}
             </header>     
             )
     }

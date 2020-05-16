@@ -2,7 +2,8 @@ import {
     ADD_TODO,
     COMPLETE_TODO,
     EDIT_TODO,
-    DELETE_TODO
+    DELETE_TODO,
+    GET_ALL_TODOS
 } from '../constants/actionTypes';
 
 import ToDoItem from '../models/ToDoItem'
@@ -39,7 +40,9 @@ function toDoReducer(state = initialState, action) {
                 item.id === action.toDoId ? 
                 { ...item,isToDo:false }:
                 item
-                );   
+                );
+        case GET_ALL_TODOS:
+            return state;   
         default:
             return; 
     }

@@ -1,13 +1,16 @@
 import React,{Component} from 'react';
+import { connect } from 'react-redux';
+import * as toDoAction from '../../actions/toDoAction';
+
 
 class ListItem extends Component{
+    
     constructor(props){
         super(props);
-       
     }
 
     render(){
-        console.log(this.props.rowData);
+        console.log(this.props.toDos);
         return(
             <div className="container" >
                 <div className="row">
@@ -28,4 +31,19 @@ class ListItem extends Component{
     }
 }
 
-export default ListItem;
+const mapStateToProps=(state,ownProps)=>{
+    console.log(state);
+    return{
+        
+        toDos:state
+    }
+};
+
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        createToDo: toDoId=>dispatch(toDoAction.deleteToDo(toDoId))
+    }
+}
+
+export default connect(mapStateToProps)(ListItem);
+//export default ListItem;
