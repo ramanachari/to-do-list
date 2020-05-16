@@ -3,6 +3,7 @@ import './App.css';
 import Create from './components/to-do-item-list/item/Create';
 import ListItem from './components/to-do-item-list/ListItem';
 import { Component } from 'react';
+import Header from './components/header/Header'
 
 class App extends Component {
 
@@ -10,6 +11,7 @@ class App extends Component {
     return (
 
       <div className="App">
+        <Header/>
         <Create />
         <ListItem />
       </div>

@@ -19,29 +19,36 @@ const initialState = {
 export default function toDoReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_TODO:
-            action.toDo.id = state.length + 1;
-            return [
-                ...state,
+            action.toDo.id = state.toDos.length + 1;
+            return {
+                toDos: [...state.toDos,
                 action.toDo
-            ];
+                ]
+            };
         case EDIT_TODO:
-            return state.map(item =>
-                item.id === action.toDo.id ?
-                    { ...item, title: action.toDo.title, from: action.toDo.from, to: action.toDo.to } :
-                    item
-            );
+            return {
+                toDos: state.toDos.map(item =>
+                    item.id === action.toDo.id ?
+                        { ...item, title: action.toDo.title, from: action.toDo.from, to: action.toDo.to } :
+                        item
+                )
+            };
         case DELETE_TODO:
-            return state.map(item =>
-                item.id === action.toDoId ?
-                    { ...item, isDeleted: false } :
-                    item
-            );
+            return {
+                toDos: state.map(item =>
+                    item.id === action.toDoId ?
+                        { ...item, isDeleted: false } :
+                        item
+                )
+            }
         case COMPLETE_TODO:
-            return state.map(item =>
-                item.id === action.toDoId ?
-                    { ...item, isToDo: false } :
-                    item
-            );
+            return {
+                toDos: state.map(item =>
+                    item.id === action.toDoId ?
+                        { ...item, isToDo: false } :
+                        item
+                )
+            }
         default:
             return state;
     }
