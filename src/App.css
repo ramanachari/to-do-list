@@ -84,7 +84,9 @@
   margin: 10px;
 }
 
-.trash-icon{
+.list-icon{
   float: right;
   padding-top: 3px;
+  margin-right: 3px;
+  cursor: pointer;
 }
