@@ -19,6 +19,7 @@ const initialState = {
 };
 
 export default function toDoReducer(state = initialState, action) {
+    debugger;
     switch (action.type) {
         case ADD_TODO:
             action.toDo.id = state.toDos.length + 1;
@@ -61,12 +62,7 @@ export default function toDoReducer(state = initialState, action) {
                 searchFilter:action.filterData
             }    
         default:
-            return {
-                toDos:state.searchFilter!=''?
-                state.toDos.filter(function(todo){return todo.title.includes(state.searchFilter)}):
-                state.toDos,
-                searchFilter:action.filterData    
-            };
+            return state;
     }
 }
 
