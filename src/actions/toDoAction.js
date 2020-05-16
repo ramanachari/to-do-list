@@ -27,3 +27,10 @@ export const completeToDo= (toDoId)=>{
         toDoId:toDoId
     }
 }
+
+export const updateFilterData= (filterData)=>{
+    return{
+        type: actionTypes.UPDATE_FILETR_DATA,
+        filterData:filterData
+    }
+}

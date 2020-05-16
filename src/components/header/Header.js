@@ -1,23 +1,48 @@
 import React, { Component } from 'react';
-// import ReactSearchBox from 'react-search-box';
+import './Header.css'
+
+import { connect } from 'react-redux';
+
+import * as actions from '../../actions/toDoAction';
 
 class Header extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentFilter: ''
+        }
+    }
+
+    handleChangeEvent = (e) => {
+        if (e.target.value != '') {
+            this.setState({ currentFilter: e.target.value });
+            this.props.filterToDos(this.state.currentFilter);
+        }
+
+
+    }
+
     render() {
+
         return (
-            <div>
-                {/* <div class="form-group has-feedback">
-    <label class="control-label" for="inputSuccess2">Name</label>
-    <input type="text" class="form-control" id="inputSuccess2"/>
-    <span class="glyphicon glyphicon-search form-control-feedback"></span> */}
-</div>
-            //     {/* <ReactSearchBox
-            //         placeholder="Placeholder"
-            //         value="Doe"
-            //         data={''}
-            //         callback={console.log('')}
-            //     /> */}
-            // </div>
+            <div className='form-group has-search'>
+                <span className='fa fa-search form-control-feedback'></span>
+                <input
+                    type='text'
+                    value={this.state.currentFilter}
+                    className='form-control'
+                    onChange={this.handleChangeEvent}
+                    placeholder='Search' />
+            </div>
         );
     }
 }
-export default Header;
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+       filterToDos: (filter) => dispatch(actions.updateFilterData(filter))
+    };
+}
+
+export default connect(null, mapDispatchToProps)(Header);
