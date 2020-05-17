@@ -20,6 +20,7 @@
     min-height: 500px;
     width: 400px;
     margin: 40px auto;
+    background-image: url(/src/logo.svg);
 }
 
 #to-do-form input{
@@ -89,4 +90,11 @@
   padding-top: 3px;
   margin-right: 3px;
   cursor: pointer;
+}
+
+.to-do-checkBox{
+  float: left;
+  /* margin-top: 0px; */
+  height: 24px;
+  width: 24px;
 }

@@ -12,7 +12,10 @@ class ListItem extends Component {
                     {this.props.toDos.filter(item => !item.isDeleted).map((value, index) => {
                         return (<>
                             <div className="card bg-warning text-white item-list-card row">
-                                <div className="card-body" id={index}>{value.title}
+                               
+                                <div className="card-body" id={index}>
+                                    <input type="checkBox" className="to-do-checkBox" ></input>
+                                    {value.title}
                                     <span>
                                         <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
                                     </span>
@@ -41,6 +44,12 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         deleteToDo: toDoId => dispatch(toDoAction.deleteToDo(toDoId))
+    }
+}
+
+const checkItemDispatchProps = (dispatch)=>{
+    return {
+        completeToDo: toDoId => dispatch(toDoAction.completeToDo(toDoId))
     }
 }
 
