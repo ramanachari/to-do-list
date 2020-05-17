@@ -51,7 +51,7 @@ export default function toDoReducer(state = initialState, action) {
             return {
                 toDos: state.toDos.map(item =>
                     item.id === action.toDoId ?
-                        { ...item, isToDo: false } :
+                        { ...item, isToDo: !item.isToDo } :
                         item
                 ),
                 searchFilter:state.searchFilter

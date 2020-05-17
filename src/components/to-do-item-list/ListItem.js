@@ -14,7 +14,7 @@ class ListItem extends Component {
                             <div className="card bg-warning text-white item-list-card row">
                                
                                 <div className="card-body" id={index}>
-                                    <input type="checkBox" className="to-do-checkBox" ></input>
+                                    <input type="checkBox" className="to-do-checkBox" checked={value.isToDo} onClick={() => this.props.completeToDo(value.id)}></input>
                                     {value.title}
                                     <span>
                                         <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
@@ -43,15 +43,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteToDo: toDoId => dispatch(toDoAction.deleteToDo(toDoId))
-    }
-}
-
-const checkItemDispatchProps = (dispatch)=>{
-    return {
+        deleteToDo: toDoId => dispatch(toDoAction.deleteToDo(toDoId)),
         completeToDo: toDoId => dispatch(toDoAction.completeToDo(toDoId))
     }
 }
+
 
 //if you are performing operations then we have use this 
 // const mapDispatchToProps = (dispatch) => {
@@ -60,4 +56,4 @@ const checkItemDispatchProps = (dispatch)=>{
 //     }
 // }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListItem);
+export default connect(mapStateToProps, mapDispatchToProps, )(ListItem);
