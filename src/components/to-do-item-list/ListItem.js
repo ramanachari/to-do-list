@@ -32,6 +32,7 @@ class ListItem extends Component {
 }
 
 const mapStateToProps = state => {
+    debugger;
     return {
         toDos: state.searchFilter!=''? state.toDos.filter(
             function (todo) {

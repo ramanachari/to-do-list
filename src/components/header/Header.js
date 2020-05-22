@@ -17,29 +17,36 @@ class Header extends Component {
     handleChangeEvent = (e) => {
 
         this.setState({ currentFilter: e.target.value });
-        this.props.updateFilter(this.state.currentFilter);
+        //debugger;
+        this.state.currentFilter = e.target.value;
+        this.props.updateFilter(e.target.value);
 
     }
 
     render() {
 
         return (
-            <div className='form-group has-search'>
-                <span className='fa fa-search form-control-feedback'></span>
-                <input
-                    type='text'
-                    value={this.state.currentFilter}
-                    className='form-control'
-                    onChange={this.handleChangeEvent}
-                    placeholder='Search' />
-            </div>
+
+            <div class="navbar navbar-expand-sm bg-dark navbar-info justify-content-center bg-info">
+   
+                
+                <div className='form-group has-search'>
+                    <span className='fa fa-search form-control-feedback'></span>
+                    <input
+                        type='text'
+                        value={this.state.currentFilter}
+                        className='form-control'
+                        onChange={this.handleChangeEvent}
+                        placeholder='Search' />
+                </div>
+                </div>
         );
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateFilter: (filter) => dispatch(actions.updateFilterData(filter))
+                    updateFilter: (filter) => dispatch(actions.updateFilterData(filter))
     };
 }
 

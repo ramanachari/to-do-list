@@ -17,10 +17,13 @@
 
 .App{
     background-color: #3f3160;
-    min-height: 500px;
-    width: 400px;
-    margin: 40px auto;
-    background-image: url(/src/logo.svg);
+    min-height: 800px;
+    /* width: 400px; */
+    /* margin: 40px auto; */
+    background-image: url(https://animaloilmaker.com/images/gif-pink-1080p-9.gif);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
 }
 
 #to-do-form input{
@@ -97,4 +100,10 @@
   /* margin-top: 0px; */
   height: 24px;
   width: 24px;
+}
+
+.app-container{
+  width: 400px;
+  margin: 40px auto;
+ /* background-image: url(https://media2.giphy.com/media/dWOKEQ5ewh94RJLemj/giphy.gif?cid=ecf05e476d9893ad68ea9818758b525a5cf2618e4210edb7&rid=giphy.gif); */
 }
