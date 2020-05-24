@@ -1,0 +1,63 @@
+.login{
+    background-image: url('https://media1.giphy.com/media/orTEFD4GoRufhL7ex0/giphy.gif?cid=ecf05e472c2fff94ed146ef825fe251f97249c72a09049d1&rid=giphy.gif');
+    min-height: 800px;
+    /* width: 400px; */
+    /* margin: 40px auto; */
+    /* background-image: url(https://animaloilmaker.com/images/gif-pink-1080p-9.gif); */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+.loginBox{
+    height:420px;
+    width:320px;
+    top:50%;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    background: #000;
+    color: #fff;
+    padding: 70px 30px;
+}
+
+.avatar{
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    position: absolute;
+    top:-50px;
+    left:calc(50% - 50px);
+}
+
+.header1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginBox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.loginBox input[type="text"], input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    outline: none;
+    height:40px;
+    color: white;
+    font-size: 18px;;
+}
+
+.loginBox input[type="submit"]{
+    background: #ffc107;
+    color: white;
+    cursor: pointer;
+    border:none;
+    outline: none;
+    height: 40px;
+    border-radius: 20px;
+}
