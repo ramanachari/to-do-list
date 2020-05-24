@@ -11,9 +11,9 @@ import ToDoItem from '../models/ToDoItem'
 const initialState = {
     //id,title,from,to,isToDo,isDeleted
     toDos: [
-        new ToDoItem(1, 'firstItem', 'des', '9:00', '9:30', true, false),
-        new ToDoItem(2, 'secondItem', 'desc', '9:00', '9:30', false, false),
-        new ToDoItem(3, 'ThirdItem', 'descrip', '9:00', '9:30', true, false)
+        new ToDoItem(1, 'firstItem', 'des', '09:00', '09:30', true, false),
+        new ToDoItem(2, 'secondItem', 'desc', '16:03', '09:30', false, false),
+        new ToDoItem(3, 'ThirdItem', 'descrip', '09:00', '09:30', true, false)
     ],
     searchFilter:''
 };
