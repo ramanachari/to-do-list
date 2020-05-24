@@ -2,14 +2,16 @@ import React from 'react';
 import * as actions from '../../../actions/toDoAction';
 import { connect } from 'react-redux';
 import ToDoItem from '../../../models/ToDoItem';
-
+import { Button, ButtonToolbar } from 'react-bootstrap';
+import { AddItem } from '../../to-do-item-list/item/AddItem';
 
 class Create extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            currentItem: ''
+            currentItem: '',
+            addModalShow: false
         }
     }
 
@@ -27,13 +29,30 @@ class Create extends React.Component {
     }
     render() {
         console.log(this.props.toDos);
+        let addModalClose = () => this.setState({ addModalShow: false });
         return (
             <header>
-                <form id="to-do-form" onSubmit={this.addItem}>
-                    <input type="text" placeholder="Enter task" value={this.state.currentItem} onChange={this.handleInput} />
-                    <button type="submit">Add</button>
-                </form>
-                {/* <ListItem rowData={this.state}/> */}
+                <ButtonToolbar >
+                    <span style={{ color: "white", fontSize: "20px" }}> Click   <Button
+                        
+                        variant = "dark"
+                        onClick={() => this.setState({ addModalShow: true })}
+                    >
+                       <span onClick={() => this.setState({ addModalShow: true })}>
+                            <i className="fa fa-plus-circle" aria-hidden="true" style={{ fontSize: "50px" }}></i>
+                        </span></Button>   to Add Your Task </span>  
+
+                    
+
+                    <AddItem
+                        show={this.state.addModalShow}
+                        onHide={addModalClose}
+                        addItem={this.addItem}
+                        currentItem={this.state.currentItem}
+                        handleInput={this.handleInput}
+                    />
+                    
+                </ButtonToolbar>
             </header>
         )
     }
