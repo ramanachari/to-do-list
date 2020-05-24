@@ -15,7 +15,7 @@ class ListItem extends Component {
                                
                                 <div className="card-body" id={index}>
                                     <input type="checkBox" className="to-do-checkBox" checked={value.isToDo} onClick={() => this.props.completeToDo(value.id)}></input>
-                                    {value.title}
+                                    <span className={value.isToDo?"line-through":""}>{value.title}</span>
                                     <span>
                                         <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
                                     </span>

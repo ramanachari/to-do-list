@@ -108,3 +108,7 @@
   margin: 40px auto;
  /* background-image: url(https://media2.giphy.com/media/dWOKEQ5ewh94RJLemj/giphy.gif?cid=ecf05e476d9893ad68ea9818758b525a5cf2618e4210edb7&rid=giphy.gif); */
 }
+
+.line-through{
+  text-decoration-line: line-through;
+}
