@@ -54,7 +54,7 @@ class EditToDoModal extends Component {
         let updatedItem=this.state.item;
         updatedItem.title=this.state.title;
         updatedItem.description=this.state.description;
-        updatedItem.from=this.state.from;
+        updatedItem.from=this.state.fromTime;
         updatedItem.to=this.state.toTime;
 
         console.log(updatedItem);
