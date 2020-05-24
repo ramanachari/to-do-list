@@ -11,19 +11,37 @@ class Create extends React.Component {
         super(props);
         this.state = {
             currentItem: '',
+            description: '',
+            from: '',
+            to: '',
+            isToDo: false,
             addModalShow: false
         }
     }
 
     handleInput = (e) => {
-        this.setState({ currentItem: e.target.value })
+
+        this.setState({ currentItem: e.target.value, from: e.target.value, to: e.target.value })
+    }
+    descriptionHandler = (e) => {
+        this.setState({ description: e.target.value });
+    }
+    fromTimeHandler = (e) => {
+        this.setState({ from: e.target.value });
+    }
+
+    toTimeHandler = (e) => {
+        this.setState({ to: e.target.value });
     }
     addItem = (e) => {
         e.preventDefault();
         const newItem = this.state.currentItem;
+        const newDesc = this.state.description;
+        const newFrom = this.state.from;
+        const newTo = this.state.to;
         if (newItem.text !== '') {
-            this.setState({currentItem: ''})
-            const todoItem = new ToDoItem(3, newItem, 'descrip', '9:00', '9:30', true, false)
+            this.setState({ currentItem: '', description: '', from: '', to: ''})
+            const todoItem = new ToDoItem(3, newItem, newDesc, newFrom, newTo, false, false)
             this.props.createToDo(todoItem);  
         }
     }
@@ -50,6 +68,10 @@ class Create extends React.Component {
                         addItem={this.addItem}
                         currentItem={this.state.currentItem}
                         handleInput={this.handleInput}
+                        descriptionHandler={this.descriptionHandler}
+                        fromTimeHandler={this.fromTimeHandler}
+                        toTimeHandler={this.toTimeHandler}
+
                     />
                     
                 </ButtonToolbar>

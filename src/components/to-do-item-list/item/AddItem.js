@@ -4,10 +4,6 @@ import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 
 
 export class AddItem extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <Modal
@@ -22,17 +18,38 @@ export class AddItem extends React.Component {
         </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <Form >
+                            <Form.Group controlId="formTitle">
+                                <Form.Label>Enter Task Name</Form.Label>
+                            <Form.Control type="text" value={this.props.currentItem} onChange={this.props.handleInput} />
+                            </Form.Group>
+                            <Form.Group controlId="formDescription">
+                                <Form.Label>Description</Form.Label>
+                                <Form.Control as="textarea" rows="3" value={this.props.description} onChange={this.props.descriptionHandler} placeholder="Enter description" />
+                            </Form.Group>
+                            <Form.Row>
+                                <Form.Group as={Col} controlId="formGridFromTime">
+                                    <Form.Label>From</Form.Label>
+                                    <Form.Control type="time" value={this.props.from} onChange={this.props.fromTimeHandler} placeholder="From Time" />
+                                </Form.Group>
 
-                    <form id="to-do-form" onSubmit={this.props.addItem}>
-                        <input type="text" placeholder="Enter task" value={this.props.currentItem} onChange={this.props.handleInput} />
-                        <button type="submit">Add</button>
-                    </form>
+                                <Form.Group as={Col} controlId="formGridToTime">
+                                    <Form.Label>To</Form.Label>
+                                    <Form.Control type="time" value={this.props.to} onChange={this.props.toTimeHandler} placeholder="To Time" />
+                                </Form.Group>
+
+                            </Form.Row>
+                        </Form>
+                    
 
 
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="danger" onClick={this.props.onHide}>Close</Button>
+                    <form id="to-do-form" onSubmit={this.props.addItem} onClick={this.props.onHide}>
+                        <button type="submit">Add</button>
+                    </form>
+                  
                 </Modal.Footer>
             </Modal>
             
