@@ -27,7 +27,7 @@ class Header extends Component {
 
         return (
 
-            <div class="navbar navbar-expand-sm bg-dark navbar-info justify-content-center bg-info">
+            <div className="navbar navbar-expand-sm bg-dark navbar-info justify-content-center bg-info">
    
                 
                 <div className='form-group has-search'>
