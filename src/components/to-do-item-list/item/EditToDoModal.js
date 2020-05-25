@@ -13,8 +13,9 @@ class EditToDoModal extends Component {
         this.state = {
             title: '',
             description: '',
-            from: '',
-            to: '',
+            fromTime: '',
+            toTime: '',
+            date:'',
             item:new ToDoItem()
         }
 
@@ -28,10 +29,13 @@ class EditToDoModal extends Component {
             description:nextProps.toDo.description,
             toTime:nextProps.toDo.to,
             fromTime:nextProps.toDo.from,
+            date:nextProps.toDo.date,
             item:nextProps.toDo
         });
-        console.log('editModal');
-        console.log(nextProps.toDo);
+        console.log(nextProps.toDo.date);
+        console.log(nextProps.toDo.from);
+        // console.log('editModal');
+        // console.log(nextProps.toDo);
     }
 
     titleHandler=(e)=> {
@@ -50,15 +54,19 @@ class EditToDoModal extends Component {
         this.setState({ toTime: e.target.value });
     }
 
+    dateHandler=(e)=>{
+        this.setState({ date: e.target.value });
+    }
+
     UpdateToDoDetails(){
         let updatedItem=this.state.item;
         updatedItem.title=this.state.title;
         updatedItem.description=this.state.description;
         updatedItem.from=this.state.fromTime;
         updatedItem.to=this.state.toTime;
-
-        console.log(updatedItem);
-
+        updatedItem.date=this.state.date;
+        //console.log(updatedItem);
+        //console.log(this.state.date);
         this.props.updateToDo(updatedItem);
         this.props.close();
 
@@ -87,6 +95,10 @@ class EditToDoModal extends Component {
                         <Form.Group controlId="formDescription">
                             <Form.Label>Description</Form.Label>
                             <Form.Control as="textarea" rows="3" value={this.state.description} onChange={this.descriptionHandler} placeholder="Enter description" />
+                        </Form.Group>
+                        <Form.Group controlId="formDate">
+                            <Form.Label>Date</Form.Label>
+                            <Form.Control type="date" value={this.state.date} onChange={this.dateHandler} placeholder="Enter description" />
                         </Form.Group>
                         <Form.Row>
                             <Form.Group as={Col} controlId="formGridFromTime">
