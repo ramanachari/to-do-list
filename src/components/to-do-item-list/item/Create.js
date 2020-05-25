@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ToDoItem from '../../../models/ToDoItem';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { AddItem } from '../../to-do-item-list/item/AddItem';
+import ListItem from '../../../list-item';
 
 class Create extends React.Component {
 
@@ -22,7 +23,7 @@ class Create extends React.Component {
 
     handleInput = (e) => {
 
-        this.setState({ currentItem: e.target.value, from: e.target.value, to: e.target.value })
+        this.setState({ currentItem: e.target.value });
     }
     descriptionHandler = (e) => {
         this.setState({ description: e.target.value });
@@ -47,16 +48,17 @@ class Create extends React.Component {
 
        // if (newItem.text !== '') {
         //   this.setState({ currentItem: '', description: '', from: '', to: '', date: '' })
-        if (newItem !== '' && newDesc !== '' && newFrom !== '' && newTo !== '' && newDate !== '')
-        {
+        if (newItem !== '' && newDesc !== '' && newFrom !== '' && newTo !== '' && newDate !== '') {
             var todoItem = new ToDoItem(3, newItem, newDesc, newDate, newFrom, newTo, false, false)
             this.props.createToDo(todoItem);
         }
+        
+        
        // }
     }
     render() {
         console.log(this.props.toDos);
-        let addModalClose = () => this.setState({ addModalShow: false });
+        let addModalClose = () => this.setState({ addModalShow: false, currentItem: '' });
         return (
             <header>
                 <ButtonToolbar >
@@ -81,10 +83,13 @@ class Create extends React.Component {
                         fromTimeHandler={this.fromTimeHandler}
                         toTimeHandler={this.toTimeHandler}
                         dateHandler={this.dateHandler}
+                        
 
                     />
+
                     
                 </ButtonToolbar>
+                
             </header>
         )
     }
