@@ -26,7 +26,11 @@ export class AddItem extends React.Component {
                             <Form.Group controlId="formDescription">
                                 <Form.Label>Description</Form.Label>
                                 <Form.Control as="textarea" rows="3" value={this.props.description} onChange={this.props.descriptionHandler} placeholder="Enter description" />
-                            </Form.Group>
+                        </Form.Group>
+                        <Form.Group controlId="formDate">
+                            <Form.Label>Date</Form.Label>
+                            <Form.Control type="date" value={this.props.date} onChange={this.props.dateHandler} placeholder="Enter description" />
+                        </Form.Group>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridFromTime">
                                     <Form.Label>From</Form.Label>

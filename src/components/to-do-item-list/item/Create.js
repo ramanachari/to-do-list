@@ -14,6 +14,7 @@ class Create extends React.Component {
             description: '',
             from: '',
             to: '',
+            date: '',
             isToDo: false,
             addModalShow: false
         }
@@ -33,15 +34,19 @@ class Create extends React.Component {
     toTimeHandler = (e) => {
         this.setState({ to: e.target.value });
     }
+    dateHandler = (e) => {
+        this.setState({ date: e.target.value });
+    }
     addItem = (e) => {
         e.preventDefault();
         const newItem = this.state.currentItem;
         const newDesc = this.state.description;
         const newFrom = this.state.from;
         const newTo = this.state.to;
+        const newDate = this.state.date;
         if (newItem.text !== '') {
-            this.setState({ currentItem: '', description: '', from: '', to: ''})
-            const todoItem = new ToDoItem(3, newItem, newDesc, newFrom, newTo, false, false)
+            this.setState({ currentItem: '', description: '', from: '', to: '', date: '' })
+            const todoItem = new ToDoItem(3, newItem, newDesc, newDate, newFrom, newTo, false, false)
             this.props.createToDo(todoItem);  
         }
     }
@@ -71,6 +76,7 @@ class Create extends React.Component {
                         descriptionHandler={this.descriptionHandler}
                         fromTimeHandler={this.fromTimeHandler}
                         toTimeHandler={this.toTimeHandler}
+                        dateHandler={this.dateHandler}
 
                     />
                     
