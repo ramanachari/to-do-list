@@ -88,12 +88,22 @@
   width: 100%;
   margin: 10px;
 }
+.card-body {
+    box-shadow: 10px 10px 5px black;
+    
+}
 
-.list-icon{
-  float: right;
-  padding-top: 3px;
-  margin-right: 3px;
-  cursor: pointer;
+.card:hover {
+    transform: scale(1.1);
+}
+
+
+
+.list-icon {
+    float: right;
+    padding-top: 3px;
+    margin-right: 3px;
+    cursor: pointer;
 }
 
 .to-do-checkBox{
@@ -109,6 +119,20 @@
  /* background-image: url(https://media2.giphy.com/media/dWOKEQ5ewh94RJLemj/giphy.gif?cid=ecf05e476d9893ad68ea9818758b525a5cf2618e4210edb7&rid=giphy.gif); */
 }
 
-.line-through{
-  text-decoration-line: line-through;
+.line-through {
+    text-decoration-line: line-through;
+    text-decoration-color: black;
+ 
 }
+
+button:hover {
+    background-color: #bbb;
+}
+.edit{
+    color: black;
+}
+.delete{
+    color: purple;
+}
+
+

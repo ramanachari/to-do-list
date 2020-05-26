@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as toDoAction from '../../actions/toDoAction';
 import EditToDoModal from './item/EditToDoModal';
+import Create from './item/Create';
 
 class ListItem extends Component {
 
@@ -33,6 +34,7 @@ class ListItem extends Component {
         console.log(this.props);
         const toDoItemId = this.state.editToDoItemId;
         const toDoItem = this.props.toDos.find(item => item.id === toDoItemId);
+        
         return (
             <div className="container" >
                 <div className="row">
@@ -44,9 +46,9 @@ class ListItem extends Component {
                                     <input type="checkBox" className="to-do-checkBox" checked={value.isToDo} onClick={() => this.props.completeToDo(value.id)}></input>
                                     <span className={value.isToDo ? "line-through" : ""}>{value.title}</span>
                                     <span>
-                                        <i className="fa fa-trash list-icon" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
+                                        <i className="fa fa-trash list-icon delete"  aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
                                     </span>
-                                    <span><i className="fa fa-pencil-square-o list-icon" onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
+                                    <span><i className="fa fa-pencil-square-o list-icon edit"  onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
                                 </div>
 
 
@@ -56,12 +58,14 @@ class ListItem extends Component {
                                         toDo={toDoItem}
                                         close={this.closeEditModel} />
                                 </div>
-
+                                
                             </div>
                         </>)
                     })}
 
                 </div>
+                
+               
             </div>
         );
 
