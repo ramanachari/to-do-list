@@ -6,6 +6,8 @@ import { Component } from 'react';
 import Header from './components/header/Header';
 import Login from './components/login/login'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Paging from './components/to-do-item-list/item/Paging';
+import 'bootstrap-less/bootstrap/bootstrap.less';
 class App extends Component {
 
   render() {
@@ -53,14 +55,16 @@ class App extends Component {
                 <Header />
                 <div className="container app-container">
                   <Create />
-                  <ListItem />
-                </div>
+                   <ListItem />
+                
+                        </div>
+                        
               </div>
             </Route>
           </Switch>
        
       </Router>
-
+        
     );
   }
 }

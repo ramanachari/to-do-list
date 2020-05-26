@@ -51,6 +51,9 @@ class Create extends React.Component {
             var todoItem = new ToDoItem(3, newItem, newDesc, newDate, newFrom, newTo, false, false)
             this.props.createToDo(todoItem);
         }
+        else {
+            alert("You must write something!");
+        }
         
         
      

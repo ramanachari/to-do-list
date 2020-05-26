@@ -15,6 +15,8 @@
   }
 }
 
+
+
 .App{
     background-color: #3f3160;
     min-height: 800px;
@@ -96,6 +98,16 @@
 .card:hover {
     transform: scale(1.1);
 }
+input[type=text] {
+    width: 200px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+    /* When the input field gets focus, change its width to 100% */
+    input[type=text]:focus {
+        width: 100%;
+    }
 
 
 
@@ -112,6 +124,7 @@
   height: 24px;
   width: 24px;
 }
+
 
 .app-container{
   width: 400px;
@@ -134,5 +147,3 @@ button:hover {
 .delete{
     color: purple;
 }
-
-

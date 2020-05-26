@@ -48,7 +48,7 @@ class ListItem extends Component {
                                     <span>
                                         <i className="fa fa-trash list-icon delete"  aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
                                     </span>
-                                    <span><i className="fa fa-pencil-square-o list-icon edit"  onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
+                                    <span><i className="fa fa-pencil-square-o list-icon edit" data-toggle="tooltip" data-placement="top" title="Tooltip on top" onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
                                 </div>
 
 

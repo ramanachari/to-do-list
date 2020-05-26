@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\header",
+    "\\src\\components\\to-do-item-list",
+    "\\src\\components\\to-do-item-list\\item",
+    "\\src\\constants",
+    "\\src\\models",
+    "\\src\\reducer"
+  ],
+  "SelectedNode": "\\src\\components\\to-do-item-list\\ListItem.js",
+  "PreviewInSolutionExplorer": false
+}
