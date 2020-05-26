@@ -50,7 +50,11 @@ class ListItem extends Component {
                                             <input type="checkBox" className="to-do-checkBox" checked={value.isToDo} onClick={() => this.props.completeToDo(value.id)}></input>
                                             <span className={value.isToDo ? "line-through" : ""}>{value.title}</span>
                                             <span>
-                                                <i className="fa fa-trash list-icon delete" data-toggle="tooltip" data-placement="top" title="Click to delete" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
+                                                <i className="fa fa-trash list-icon delete" data-toggle="tooltip" data-placement="top" title="Click to delete" aria-hidden="true" onClick={() => {
+                                                    {
+                                                        if (window.confirm("Are you sure?")) { this.props.deleteToDo(value.id) }
+                                                    }
+                                                }} ></i>
                                             </span>
                                             <span><i className="fa fa-pencil-square-o list-icon edit" data-toggle="tooltip" data-placement="top" title="Click to edit" onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
                                         </div>
