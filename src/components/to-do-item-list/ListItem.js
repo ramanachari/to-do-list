@@ -46,9 +46,9 @@ class ListItem extends Component {
                                     <input type="checkBox" className="to-do-checkBox" checked={value.isToDo} onClick={() => this.props.completeToDo(value.id)}></input>
                                     <span className={value.isToDo ? "line-through" : ""}>{value.title}</span>
                                     <span>
-                                        <i className="fa fa-trash list-icon delete"  aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
+                                        <i className="fa fa-trash list-icon delete" ata-toggle="tooltip" data-placement="top" title="Click to delete" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
                                     </span>
-                                    <span><i className="fa fa-pencil-square-o list-icon edit" data-toggle="tooltip" data-placement="top" title="Tooltip on top" onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
+                                    <span><i className="fa fa-pencil-square-o list-icon edit" data-toggle="tooltip" data-placement="top" title="Click to edit" onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
                                 </div>
 
 
