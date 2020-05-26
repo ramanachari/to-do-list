@@ -46,15 +46,14 @@ class Create extends React.Component {
         const newTo = this.state.to;
         const newDate = this.state.date;
 
-       // if (newItem.text !== '') {
-        //   this.setState({ currentItem: '', description: '', from: '', to: '', date: '' })
+      
         if (newItem !== '' && newDesc !== '' && newFrom !== '' && newTo !== '' && newDate !== '') {
             var todoItem = new ToDoItem(3, newItem, newDesc, newDate, newFrom, newTo, false, false)
             this.props.createToDo(todoItem);
         }
         
         
-       // }
+     
     }
     render() {
         console.log(this.props.toDos);
