@@ -45,22 +45,20 @@ class Create extends React.Component {
         const newFrom = this.state.from;
         const newTo = this.state.to;
         const newDate = this.state.date;
-
+        
       
         if (newItem !== '' && newDesc !== '' && newFrom !== '' && newTo !== '' && newDate !== '') {
             var todoItem = new ToDoItem(3, newItem, newDesc, newDate, newFrom, newTo, false, false)
             this.props.createToDo(todoItem);
         }
-        else {
-            alert("You must write something!");
-        }
+        
         
         
      
     }
     render() {
         console.log(this.props.toDos);
-        let addModalClose = () => this.setState({ addModalShow: false, currentItem: '' });
+        let addModalClose = () => this.setState({ addModalShow: false });
         return (
             <header>
                 <ButtonToolbar >
@@ -79,7 +77,6 @@ class Create extends React.Component {
                         show={this.state.addModalShow}
                         onHide={addModalClose}
                         addItem={this.addItem}
-                        currentItem={this.state.currentItem}
                         handleInput={this.handleInput}
                         descriptionHandler={this.descriptionHandler}
                         fromTimeHandler={this.fromTimeHandler}

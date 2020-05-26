@@ -42,7 +42,9 @@ class App extends Component {
                 <Header />
                 <div className="container app-container">
                   <Create />
-                  <ListItem />
+                            <ListItem />
+                            
+
                 </div>
               </div>
             </Route>
@@ -55,8 +57,8 @@ class App extends Component {
                 <Header />
                 <div className="container app-container">
                   <Create />
-                   <ListItem />
-                
+                            <ListItem />
+                           
                         </div>
                         
               </div>

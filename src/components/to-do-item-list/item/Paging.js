@@ -1,32 +1,65 @@
-import React, { Component } from "react";
-import Pagination from "react-js-pagination";
-import 'bootstrap-less/bootstrap/bootstrap.less'
+//import React, { Component } from 'react';
+//import PaginationList from 'react-pagination-list';
+//import { connect } from 'react-redux';
+//import ListItem from '../ListItem';
+//import * as toDoAction from '../../../actions/toDoAction';
+//import EditToDoModal from '../item/EditToDoModal';
 
-class Paging extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            activePage: 15
-        };
-    }
+//class Paging extends Component {
+//    constructor(props) {
+//        super(props);
+//        this.state = {
+//            editToDoItemId: 0,
+//            showEditModal: false
+//        }
+//        this.updateEditItemId = this.updateEditItemId.bind(this);
+//        this.closeEditModel = this.closeEditModel.bind(this);
+//    }
 
-    handlePageChange(pageNumber) {
-       
-        this.setState({ activePage: pageNumber });
-    }
+//    updateEditItemId(toDoId) {
+//        console.log('Edit click ' + toDoId);
+//        this.setState({
+//            editToDoItemId: toDoId,
+//            showEditModal: true
+//        });
+//    }
 
-    render() {
-        return (
-            <div>
-                <Pagination
-                    activePage={this.state.activePage}
-                    itemsCountPerPage={10}
-                    totalItemsCount={450}
-                    pageRangeDisplayed={5}
-                    onChange={this.handlePageChange.bind(this)}
-                />
-            </div>
-        );
-    }
-}
-export default Paging;
+//    closeEditModel() {
+//        this.setState({
+//            showEditModal: false
+//        });
+//    };
+//    render() {
+//        const toDoItemId = this.state.editToDoItemId;
+//        const toDoItem = this.props.toDos.find(item => item.id === toDoItemId);
+//        return (
+
+//           )
+//                }
+//                }
+                
+//            />
+            
+//                )
+//    }
+//    debugger;
+//}
+
+//const mapStateToProps = state => {
+//return {
+//    toDos: state.searchFilter != '' ? state.toDos.filter(
+//        function (todo) {
+//            return todo.title.includes(state.searchFilter)
+//        }
+//    ) : state.toDos
+//}
+//};
+//const mapDispatchToProps = (dispatch) => {
+//    return {
+//        deleteToDo: toDoId => dispatch(toDoAction.deleteToDo(toDoId)),
+//        completeToDo: toDoId => dispatch(toDoAction.completeToDo(toDoId))
+//    }
+//}
+
+
+//export default connect(mapStateToProps, mapDispatchToProps)(Paging);

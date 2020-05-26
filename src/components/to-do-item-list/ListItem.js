@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as toDoAction from '../../actions/toDoAction';
 import EditToDoModal from './item/EditToDoModal';
 import Create from './item/Create';
+import PaginationList from 'react-pagination-list';
 
 class ListItem extends Component {
 
@@ -13,7 +14,7 @@ class ListItem extends Component {
             showEditModal: false
         }
         this.updateEditItemId = this.updateEditItemId.bind(this);
-        this.closeEditModel=this.closeEditModel.bind(this);
+        this.closeEditModel = this.closeEditModel.bind(this);
     }
 
     updateEditItemId(toDoId) {
@@ -24,54 +25,54 @@ class ListItem extends Component {
         });
     }
 
-    closeEditModel(){
+    closeEditModel() {
         this.setState({
             showEditModal: false
         });
     };
 
     render() {
+        console.log('hello');
         console.log(this.props);
+        console.log('paurush');
         const toDoItemId = this.state.editToDoItemId;
         const toDoItem = this.props.toDos.find(item => item.id === toDoItemId);
-        
+
         return (
-            <div className="container" >
-                <div className="row">
-                    {this.props.toDos.filter(item => !item.isDeleted).map((value, index) => {
-                        return (<>
-                            <div className="card bg-warning text-white item-list-card row">
+            <PaginationList
+                data={this.props.toDos.filter(item => !item.isDeleted)}
+                            pageSize={4}
+                            renderItem={(value, index) => {
+                                return (<>
+                                    <div className="card bg-warning text-white item-list-card row">
 
-                                <div className="card-body" id={index}>
-                                    <input type="checkBox" className="to-do-checkBox" checked={value.isToDo} onClick={() => this.props.completeToDo(value.id)}></input>
-                                    <span className={value.isToDo ? "line-through" : ""}>{value.title}</span>
-                                    <span>
-                                        <i className="fa fa-trash list-icon delete" ata-toggle="tooltip" data-placement="top" title="Click to delete" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
-                                    </span>
-                                    <span><i className="fa fa-pencil-square-o list-icon edit" data-toggle="tooltip" data-placement="top" title="Click to edit" onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
-                                </div>
-
-
-                                <div>
-                                    <EditToDoModal
-                                        show={this.state.showEditModal}
-                                        toDo={toDoItem}
-                                        close={this.closeEditModel} />
-                                </div>
-                                
-                            </div>
-                        </>)
-                    })}
-
-                </div>
-                
-               
-            </div>
-        );
+                                        <div className="card-body" id={index}>
+                                            <input type="checkBox" className="to-do-checkBox" checked={value.isToDo} onClick={() => this.props.completeToDo(value.id)}></input>
+                                            <span className={value.isToDo ? "line-through" : ""}>{value.title}</span>
+                                            <span>
+                                                <i className="fa fa-trash list-icon delete" data-toggle="tooltip" data-placement="top" title="Click to delete" aria-hidden="true" onClick={() => this.props.deleteToDo(value.id)} ></i>
+                                            </span>
+                                            <span><i className="fa fa-pencil-square-o list-icon edit" data-toggle="tooltip" data-placement="top" title="Click to edit" onClick={() => this.updateEditItemId(value.id)} aria-hidden="true" ></i></span>
+                                        </div>
 
 
+                                        <div>
+                                            <EditToDoModal
+                                                show={this.state.showEditModal}
+                                                toDo={toDoItem}
+                                                close={this.closeEditModel} />
+                                        </div>
+
+                                    </div>
+                                </>)
+                            }}
+                        />)
+                    
     }
 }
+
+            
+            
 
 const mapStateToProps = state => {
     debugger;
